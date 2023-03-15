@@ -38,7 +38,8 @@ const {
   getpremiumDetail,
   updatePremium,
   deletePremium,
-  findAndUpdatePremium
+  findAndUpdatePremium,
+  calculatedPremiums
 } = require("./controller/premiumController");
 
 Router.post("/premium", isAuthorized,storePremium);
@@ -47,5 +48,6 @@ Router.get("/premium/:id", isAuthorized,getpremiumDetail);
 Router.patch("/premium/:id", isAuthorized,updatePremium);
 Router.post("/premium/:id", isAuthorized,findAndUpdatePremium);
 Router.delete("/premium/:id",isAuthorized, deletePremium);
+Router.get("/calculatedPremium/:id",calculatedPremiums);
 
 module.exports = Router;

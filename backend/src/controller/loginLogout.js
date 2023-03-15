@@ -15,6 +15,8 @@ const logIn = async (req, res) => {
       const token = await user.generateAuthToken();
       const updatedData = JSON.parse(JSON.stringify(user));
       updatedData.token = token;
+      delete updatedData.tokens
+      delete updatedData.password
       res.status(200).send(updatedData);
     } else {
       res.status(400).send("Invalid Credentials");
